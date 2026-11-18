@@ -17,6 +17,7 @@ host = '127.0.0.1'
 port = 5000
 server_socket.bind((host, port))
 server_socket.listen(1)
+
 print("Echo Server is waiting for connection...")
 client_socket, addr = server_socket.accept()
 print("Connected to:", addr)
@@ -38,16 +39,16 @@ port = 5000
 client_socket.connect((host, port))
 while True:
     message = input("Enter message: ")
-    client_socket.send(message.encode())
     if message.lower() == 'exit':
         break
+    client_socket.send(message.encode())
     data = client_socket.recv(1024).decode()
     print("Server echoed:", data)
 client_socket.close()
 ```
 ## OUPUT:
-<img width="1107" height="267" alt="Screenshot 2026-11-18 100544" src="https://github.com/user-attachments/assets/17b94d9b-2e35-4437-a9a8-10951d4dabc7" />
-<img width="1113" height="240" alt="Screenshot 2026-11-18 100631" src="https://github.com/user-attachments/assets/68168df9-dcaa-461c-9411-864c51f09ee2" />
+<img width="1115" height="561" alt="Screenshot 2026-11-18 102308" src="https://github.com/user-attachments/assets/d503b56c-12ae-433d-ad4b-fa2a2f7ecae6" />
+<img width="1107" height="502" alt="Screenshot 2026-11-18 102316" src="https://github.com/user-attachments/assets/d831b5e9-3521-4a90-9b5b-d00d7fd1c459" />
 
 ## RESULT:
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
